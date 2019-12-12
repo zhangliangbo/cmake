@@ -15,4 +15,14 @@ configure_file(
 
 include_directories("${PROJECT_BINARY_DIR}")
 
-add_executable(. main.cpp MathFunctions/mysqrt.cpp)
+
+option(USE_MYMATH "Use tutorial provided math implementation" ON)
+
+if (USE_MYMATH)
+    include_directories("${PROJECT_SOURCE_DIR}/MathFunctions")
+    add_subdirectory(MathFunctions)
+    set(EXTRA_LIBS ${EXTRA_LIBS} MathFunctions)
+endif ()
+
+add_executable(Tutorial main.cpp)
+target_link_libraries(Tutorial ${EXTRA_LIBS})
