@@ -3,8 +3,14 @@ project(Tutorial)
 
 set(CMAKE_CXX_STANDARD 14)
 
+#版本号
 set(Tutorial_VERSION_MAJOR 1)
 set(Tutorial_VERSION_MINOR 0)
+
+#系统自检
+include(CheckFunctionExists)
+check_function_exists(log HAVE_LOG)
+check_function_exists(exp HAVE_EXP)
 
 message(STATUS "..")
 message(STATUS "${PROJECT_BINARY_DIR}")
@@ -42,8 +48,11 @@ endmacro()
 #使用测试宏
 do_test(25 "25 is 5")
 do_test(-25 "-25 is 0")
-#系统自检
-include(CheckFunctionExists)
-check_function_exists(log HAVE_LOG)
-check_function_exists(exp HAVE_EXP)
-
+#安装器
+# build a CPack driven installer package
+include (InstallRequiredSystemLibraries)
+set (CPACK_RESOURCE_FILE_LICENSE
+        "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
+set (CPACK_PACKAGE_VERSION_MAJOR "${Tutorial_VERSION_MAJOR}")
+set (CPACK_PACKAGE_VERSION_MINOR "${Tutorial_VERSION_MINOR}")
+include (CPack)
