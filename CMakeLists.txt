@@ -28,6 +28,10 @@ endif ()
 #构建
 add_executable(Tutorial main.cpp)
 target_link_libraries(Tutorial ${EXTRA_LIBS})
+#安装
+set(CMAKE_INSTALL_PREFIX "D:/clib")
+install(TARGETS Tutorial DESTINATION bin)
+install(FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION include)
 #测试
 include(CTest)
 #定义测试宏(宏和函数的区别？)
@@ -38,9 +42,8 @@ endmacro()
 #使用测试宏
 do_test(25 "25 is 5")
 do_test(-25 "-25 is 0")
-#安装
-set(CMAKE_INSTALL_PREFIX "D:/clib")
-install(TARGETS Tutorial DESTINATION bin)
-install(FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION include)
-
+#系统自检
+include(CheckFunctionExists)
+check_function_exists(log HAVE_LOG)
+check_function_exists(exp HAVE_EXP)
 
