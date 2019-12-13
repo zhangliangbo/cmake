@@ -1,4 +1,4 @@
-add_library(MathFunctions mysqrt.cpp)
+add_library(MathFunctions MathFunctions.h mysqrt.cpp)
 
 set(CMAKE_INSTALL_PREFIX "D:/clib")
 install(TARGETS MathFunctions DESTINATION bin)

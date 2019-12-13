@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
     }
     double input = atof(argv[1]);
 #ifdef USE_MYMATH
-    double output = sqrt(input);
+    double output = mysqrt(input);
 #else
     double output = sqrt(input);
 #endif
