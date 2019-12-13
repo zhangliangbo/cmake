@@ -40,7 +40,7 @@ install(TARGETS Tutorial DESTINATION bin)
 install(FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION include)
 #测试
 include(CTest)
-set (CTEST_PROJECT_NAME "Tutorial")
+set(CTEST_PROJECT_NAME "Tutorial")
 #定义测试宏(宏和函数的区别？)
 macro(do_test arg res)
     add_test(TutorialComp${arg} Tutorial ${arg})
@@ -51,8 +51,13 @@ do_test(25 "25 is 5")
 do_test(-25 "-25 is 0")
 #安装器
 # build a CPack driven installer package
-include (InstallRequiredSystemLibraries)
-include (CPack)
-set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
-set (CPACK_PACKAGE_VERSION_MAJOR "${Tutorial_VERSION_MAJOR}")
-set (CPACK_PACKAGE_VERSION_MINOR "${Tutorial_VERSION_MINOR}")
+include(InstallRequiredSystemLibraries)
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
+set(CPACK_PACKAGE_VERSION_MAJOR "${Tutorial_VERSION_MAJOR}")
+set(CPACK_PACKAGE_VERSION_MINOR "${Tutorial_VERSION_MINOR}")
+set(CPACK_SOURCE_IGNORE_FILES
+        ${PROJECT_SOURCE_DIR}/cmake-build-debug
+        ${PROJECT_SOURCE_DIR}/.idea
+        ${PROJECT_SOURCE_DIR}/.git
+        ${PROJECT_SOURCE_DIR}/.gitignore)
+include(CPack)
