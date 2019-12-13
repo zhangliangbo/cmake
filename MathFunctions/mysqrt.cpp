@@ -4,5 +4,5 @@
 #include <cmath>
 #include "MathFunctions.h"
 double mysqrt(double in) {
-    return sqrt(in);
+    return in;
 }

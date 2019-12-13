@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(.)
+project(Tutorial)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -27,5 +27,6 @@ endif ()
 add_executable(Tutorial main.cpp)
 target_link_libraries(Tutorial ${EXTRA_LIBS})
 
+set(CMAKE_INSTALL_PREFIX "D:/clib")
 install(TARGETS Tutorial DESTINATION bin)
 install(FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION include)
