@@ -26,3 +26,6 @@ endif ()
 
 add_executable(Tutorial main.cpp)
 target_link_libraries(Tutorial ${EXTRA_LIBS})
+
+install(TARGETS Tutorial DESTINATION bin)
+install(FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION include)
