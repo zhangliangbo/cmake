@@ -61,3 +61,4 @@ set(CPACK_SOURCE_IGNORE_FILES
         ${PROJECT_SOURCE_DIR}/.git
         ${PROJECT_SOURCE_DIR}/.gitignore)
 include(CPack)
+
