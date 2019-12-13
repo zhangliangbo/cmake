@@ -21,6 +21,6 @@ int main(int argc, char *argv[]) {
 #else
     double output = sqrt(input);
 #endif
-    fprintf(stdout, "The square root of %g\n", input, output);
+    fprintf(stdout, "The square root of %g is %g\n", input, output);
     return 0;
 }
