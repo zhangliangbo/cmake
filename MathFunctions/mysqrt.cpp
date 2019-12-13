@@ -4,7 +4,6 @@
 #include <cmath>
 #include "TutorialConfig.h"
 #include "MathFunctions.h"
-
 double mysqrt(double in) {
     double result;
 #if defined(HAVE_LOG) && defined(HAVE_EXP)
